@@ -1,0 +1,80 @@
+ Percent |	Source code & Disassembly of bench_O3 for task-clock:ppp (235 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001590 <matmul>:
+         : 6    * послідовно в памʼяті, тому з -O3 -mavx2 -mfma він перетворюється на
+         : 7    * векторні vfmadd231ps над регістрами ymm (8 float за інструкцію).
+         : 8    */
+         : 9    NOINLINE void matmul(const float *restrict a, const float *restrict b,
+         : 10   float *restrict c, int n)
+         : 11   {
+    0.00 :   1590:   endbr64
+    0.00 :   1594:   push   %rbp
+    0.00 :   1595:   movslq %ecx,%rcx
+    0.00 :   1598:   mov    %rsp,%rbp
+    0.00 :   159b:   push   %r15
+    0.00 :   159d:   push   %r14
+    0.00 :   159f:   mov    %rcx,%r14
+    0.00 :   15a2:   push   %r13
+    0.00 :   15a4:   mov    %rdi,%r13
+    0.00 :   15a7:   push   %r12
+    0.00 :   15a9:   mov    %rdx,%r12
+         : 23   memset(c, 0, (size_t)n * n * sizeof(float));
+    0.00 :   15ac:   mov    %rcx,%rdx
+         : 25   {
+    0.00 :   15af:   push   %rbx
+         : 27   memset(c, 0, (size_t)n * n * sizeof(float));
+    0.00 :   15b0:   imul   %rcx,%rdx
+         : 29   {
+    0.00 :   15b4:   mov    %rsi,%rbx
+         : 31   case no work is done at all.  We detect these problems by referring
+         : 32   non-existing functions.  */
+         : 33   __fortify_function void *
+         : 34   __NTH (memset (void *__dest, int __ch, size_t __len))
+         : 35   {
+         : 36   return __builtin___memset_chk (__dest, __ch, __len,
+    0.00 :   15b7:   mov    %r12,%rdi
+    0.00 :   15ba:   xor    %esi,%esi
+    0.00 :   15bc:   and    $0xffffffffffffffe0,%rsp
+         : 40   memset(c, 0, (size_t)n * n * sizeof(float));
+    0.00 :   15c0:   shl    $0x2,%rdx
+         : 42   {
+    0.00 :   15c4:   sub    $0x60,%rsp
+         : 44   memset(c, 0, (size_t)n * n * sizeof(float));
+    0.00 :   15c8:   mov    %rcx,0x58(%rsp)
+    0.00 :   15cd:   call   1110 <memset@plt>
+         : 47   for (int i = 0; i < n; i++)
+    0.00 :   15d2:   test   %r14d,%r14d
+    0.00 :   15d5:   jle    1937 <matmul+0x3a7>
+    0.00 :   15db:   mov    %r14,%rcx
+    0.00 :   15de:   lea    0x0(,%r14,8),%rdx
+    0.00 :   15e6:   mov    %r13,%rdi
+    0.00 :   15e9:   xor    %r13d,%r13d
+    0.00 :   15ec:   add    %rcx,%rcx
+    0.00 :   15ef:   mov    %rdx,0x20(%rsp)
+    0.00 :   15f4:   mov    %r14d,%edx
+    0.00 :   15f7:   xor    %r15d,%r15d
+    0.00 :   15fa:   mov    %rcx,0x18(%rsp)
+    0.00 :   15ff:   lea    -0x1(%r14),%ecx
+    0.00 :   1603:   shr    $0x3,%edx
+    0.00 :   1606:   mov    %r13d,%r10d
+    0.00 :   1609:   mov    %ecx,0x54(%rsp)
+    0.00 :   160d:   mov    %r14d,%ecx
+    0.00 :   1610:   lea    0x0(,%r14,4),%rax
+    0.00 :   1618:   shl    $0x5,%rdx
+    0.00 :   161c:   and    $0xfffffff8,%ecx
+    0.00 :   161f:   mov    %rax,0x40(%rsp)
+    0.00 :   1624:   mov    %r12,%rax
+    0.00 :   1627:   mov    %ecx,0x38(%rsp)
+    0.00 :   162b:   lea    -0x3(%r14),%ecx
+    0.00 :   162f:   and    $0xfffffffe,%ecx
+    0.00 :   1632:   add    $0x2,%ecx
+    0.00 :   1635:   mov    %ecx,0x3c(%rsp)
+         : 74   for (int k = 0; k < n; k++) {
+         : 75   float aik = a[(size_t)i * n + k];
+         : 76   for (int j = 0; j < n; j++)
+    0.00 :   1639:   xor    %r8d,%r8d

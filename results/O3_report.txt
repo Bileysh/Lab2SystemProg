@@ -1,0 +1,40 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 259  of event 'task-clock:ppp'
+# Event count (approx.): 259259259
+#
+# Overhead  Symbol                                         Shared Object      IPC   [IPC Coverage]
+# ........  .............................................  .................  ....................
+#
+    93.44%  [.] matmul                                     bench_O3           -      -            
+            |
+            ---main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+     1.16%  [.] fill_random                                bench_O3           -      -            
+            |
+            ---__libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+     0.77%  [k] _raw_spin_unlock_irqrestore                [kernel.kallsyms]  -      -            
+     0.77%  [.] checksum                                   bench_O3           -      -            
+            |
+            ---__libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+     0.77%  [k] percpu_counter_add_batch                   [kernel.kallsyms]  -      -            
+            |
+            ---do_anonymous_page
+               __handle_mm_fault
+               handle_mm_fault
+               do_user_addr_fault
+               exc_page_fault
+               asm_exc_page_fault
+     0.39%  [.] __memmove_avx_unaligned_erms               libc.so.6          -      -            
+     0.39%  [k] __raw_callee_save___pv_queued_spin_unlock  [kernel.kallsyms]  -      -            
+     0.39%  [k] blk_cgroup_congested                       [kernel.kallsyms]  -      -            
+     0.39%  [.] blur3x3                                    bench_O3           -      -            

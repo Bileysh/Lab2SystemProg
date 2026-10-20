@@ -1,0 +1,37 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'task-clock:ppp'
+# Event count (approx.): 5727727722
+#
+# Overhead  Symbol                            Shared Object      IPC   [IPC Coverage]
+# ........  ................................  .................  ....................
+#
+    98.71%  [.] matmul                        bench_O0           -      -            
+            |
+            ---main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+     0.70%  [.] blur3x3                       bench_O0           -      -            
+            |
+            ---main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+     0.19%  [.] fill_random                   bench_O0           -      -            
+     0.10%  [.] checksum                      bench_O0           -      -            
+     0.07%  [k] do_user_addr_fault            [kernel.kallsyms]  -      -            
+     0.05%  [.] at                            bench_O0           -      -            
+     0.05%  [.] xorshift32                    bench_O0           -      -            
+     0.03%  [k] charge_memcg                  [kernel.kallsyms]  -      -            
+     0.02%  [.] __memmove_avx_unaligned_erms  libc.so.6          -      -            
+     0.02%  [k] __mod_node_page_state         [kernel.kallsyms]  -      -            
+     0.02%  [k] clear_page_erms               [kernel.kallsyms]  -      -            
+     0.02%  [k] run_rebalance_domains         [kernel.kallsyms]  -      -            
+     0.02%  [k] xas_descend                   [kernel.kallsyms]  -      -            
+#
+# (Cannot load tips.txt file, please install perf!)
+#

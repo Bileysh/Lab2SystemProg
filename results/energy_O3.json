@@ -1,0 +1,16 @@
+﻿{
+    "variant":  "O3",
+    "N":  1024,
+    "repeats":  2,
+    "runs":  20,
+    "time_s":  4.526,
+    "idle_pkg_W":  5.75,
+    "idle_cores_W":  1.05,
+    "avg_pkg_W":  15.23,
+    "avg_cores_W":  10.02,
+    "system_pkg_J":  68.92,
+    "program_pkg_J":  42.87,
+    "program_cores_J":  40.59,
+    "program_pkg_J_per_run":  2.143,
+    "battery":  "на зарядці: DischargeRate недоступний (відключіть живлення для заміру всього ноутбука)"
+}
