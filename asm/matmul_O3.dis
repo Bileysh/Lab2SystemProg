@@ -1,0 +1,273 @@
+
+build/bench_O3:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001590 <matmul>:
+    1590:	endbr64
+    1594:	push   rbp
+    1595:	movsxd rcx,ecx
+    1598:	mov    rbp,rsp
+    159b:	push   r15
+    159d:	push   r14
+    159f:	mov    r14,rcx
+    15a2:	push   r13
+    15a4:	mov    r13,rdi
+    15a7:	push   r12
+    15a9:	mov    r12,rdx
+    15ac:	mov    rdx,rcx
+    15af:	push   rbx
+    15b0:	imul   rdx,rcx
+    15b4:	mov    rbx,rsi
+    15b7:	mov    rdi,r12
+    15ba:	xor    esi,esi
+    15bc:	and    rsp,0xffffffffffffffe0
+    15c0:	shl    rdx,0x2
+    15c4:	sub    rsp,0x60
+    15c8:	mov    QWORD PTR [rsp+0x58],rcx
+    15cd:	call   1110 <memset@plt>
+    15d2:	test   r14d,r14d
+    15d5:	jle    1937 <matmul+0x3a7>
+    15db:	mov    rcx,r14
+    15de:	lea    rdx,[r14*8+0x0]
+    15e6:	mov    rdi,r13
+    15e9:	xor    r13d,r13d
+    15ec:	add    rcx,rcx
+    15ef:	mov    QWORD PTR [rsp+0x20],rdx
+    15f4:	mov    edx,r14d
+    15f7:	xor    r15d,r15d
+    15fa:	mov    QWORD PTR [rsp+0x18],rcx
+    15ff:	lea    ecx,[r14-0x1]
+    1603:	shr    edx,0x3
+    1606:	mov    r10d,r13d
+    1609:	mov    DWORD PTR [rsp+0x54],ecx
+    160d:	mov    ecx,r14d
+    1610:	lea    rax,[r14*4+0x0]
+    1618:	shl    rdx,0x5
+    161c:	and    ecx,0xfffffff8
+    161f:	mov    QWORD PTR [rsp+0x40],rax
+    1624:	mov    rax,r12
+    1627:	mov    DWORD PTR [rsp+0x38],ecx
+    162b:	lea    ecx,[r14-0x3]
+    162f:	and    ecx,0xfffffffe
+    1632:	add    ecx,0x2
+    1635:	mov    DWORD PTR [rsp+0x3c],ecx
+    1639:	xor    r8d,r8d
+    163c:	cmp    r14d,0x2
+    1640:	jle    17fa <matmul+0x26a>
+    1646:	mov    r8d,DWORD PTR [rsp+0x3c]
+    164b:	mov    DWORD PTR [rsp+0x34],r10d
+    1650:	mov    r9,rbx
+    1653:	xor    r11d,r11d
+    1656:	mov    QWORD PTR [rsp+0x48],rax
+    165b:	mov    rcx,QWORD PTR [rsp+0x58]
+    1660:	lea    r13,[rdi+0x4]
+    1664:	mov    DWORD PTR [rsp+0x50],0x0
+    166c:	mov    DWORD PTR [rsp+0x30],r8d
+    1671:	mov    QWORD PTR [rsp+0x28],rdi
+    1676:	cmp    DWORD PTR [rsp+0x54],0x6
+    167b:	vmovss xmm3,DWORD PTR [r13-0x4]
+    1681:	jbe    197a <matmul+0x3ea>
+    1687:	mov    rax,QWORD PTR [rsp+0x40]
+    168c:	vbroadcastss ymm1,DWORD PTR [r13+0x0]
+    1692:	vbroadcastss ymm2,xmm3
+    1697:	xor    esi,esi
+    1699:	lea    rdi,[rax+r9*1]
+    169d:	mov    rax,QWORD PTR [rsp+0x48]
+    16a2:	nop    WORD PTR [rax+rax*1+0x0]
+    16a8:	vmovups ymm0,YMMWORD PTR [r9+rsi*1]
+    16ae:	vfmadd213ps ymm0,ymm2,YMMWORD PTR [rax+rsi*1]
+    16b4:	vfmadd231ps ymm0,ymm1,YMMWORD PTR [rdi+rsi*1]
+    16ba:	vmovups YMMWORD PTR [rax+rsi*1],ymm0
+    16bf:	add    rsi,0x20
+    16c3:	cmp    rdx,rsi
+    16c6:	jne    16a8 <matmul+0x118>
+    16c8:	mov    edi,DWORD PTR [rsp+0x38]
+    16cc:	mov    QWORD PTR [rsp+0x48],rax
+    16d1:	cmp    edi,r14d
+    16d4:	mov    esi,edi
+    16d6:	je     17ba <matmul+0x22a>
+    16dc:	mov    r8d,r14d
+    16df:	sub    r8d,esi
+    16e2:	lea    r10d,[r8-0x1]
+    16e6:	cmp    r10d,0x2
+    16ea:	jbe    172e <matmul+0x19e>
+    16ec:	lea    r10,[r15+rsi*1]
+    16f0:	lea    rax,[rcx+rsi*1]
+    16f4:	add    rsi,r11
+    16f7:	vshufps xmm1,xmm3,xmm3,0x0
+    16fc:	lea    r10,[r12+r10*4]
+    1700:	vbroadcastss xmm0,DWORD PTR [r13+0x0]
+    1706:	vmovups xmm6,XMMWORD PTR [r10]
+    170b:	vfmadd132ps xmm1,xmm6,XMMWORD PTR [rbx+rsi*4]
+    1711:	mov    esi,r8d
+    1714:	vfmadd132ps xmm0,xmm1,XMMWORD PTR [rbx+rax*4]
+    171a:	and    esi,0xfffffffc
+    171d:	add    edi,esi
+    171f:	and    r8d,0x3
+    1723:	vmovups XMMWORD PTR [r10],xmm0
+    1728:	je     17ba <matmul+0x22a>
+    172e:	movsxd rsi,edi
+    1731:	vmovss xmm0,DWORD PTR [r13+0x0]
+    1737:	lea    r8,[rsi+r15*1]
+    173b:	lea    r10,[r11+rsi*1]
+    173f:	add    rsi,rcx
+    1742:	lea    r8,[r12+r8*4]
+    1746:	vmovss xmm1,DWORD PTR [rbx+r10*4]
+    174c:	vfmadd213ss xmm1,xmm3,DWORD PTR [r8]
+    1751:	vfmadd231ss xmm1,xmm0,DWORD PTR [rbx+rsi*4]
+    1757:	lea    esi,[rdi+0x1]
+    175a:	cmp    r14d,esi
+    175d:	vmovss DWORD PTR [r8],xmm1
+    1762:	jle    17ba <matmul+0x22a>
+    1764:	movsxd rsi,esi
+    1767:	lea    r8,[r15+rsi*1]
+    176b:	lea    r10,[r11+rsi*1]
+    176f:	add    rsi,rcx
+    1772:	lea    r8,[r12+r8*4]
+    1776:	vmovss xmm1,DWORD PTR [rbx+r10*4]
+    177c:	vfmadd213ss xmm1,xmm3,DWORD PTR [r8]
+    1781:	vfmadd231ss xmm1,xmm0,DWORD PTR [rbx+rsi*4]
+    1787:	lea    esi,[rdi+0x2]
+    178a:	cmp    r14d,esi
+    178d:	vmovss DWORD PTR [r8],xmm1
+    1792:	jle    17ba <matmul+0x22a>
+    1794:	movsxd rsi,esi
+    1797:	lea    rdi,[r15+rsi*1]
+    179b:	lea    r8,[r11+rsi*1]
+    179f:	add    rsi,rcx
+    17a2:	lea    rdi,[r12+rdi*4]
+    17a6:	vmovss xmm7,DWORD PTR [rdi]
+    17aa:	vfmadd132ss xmm3,xmm7,DWORD PTR [rbx+r8*4]
+    17b0:	vfmadd132ss xmm0,xmm3,DWORD PTR [rbx+rsi*4]
+    17b6:	vmovss DWORD PTR [rdi],xmm0
+    17ba:	mov    rax,QWORD PTR [rsp+0x20]
+    17bf:	add    DWORD PTR [rsp+0x50],0x2
+    17c4:	add    r13,0x8
+    17c8:	mov    edi,DWORD PTR [rsp+0x50]
+    17cc:	add    r9,rax
+    17cf:	mov    rax,QWORD PTR [rsp+0x18]
+    17d4:	add    r11,rax
+    17d7:	add    rcx,rax
+    17da:	mov    eax,DWORD PTR [rsp+0x3c]
+    17de:	cmp    edi,eax
+    17e0:	jne    1676 <matmul+0xe6>
+    17e6:	mov    r10d,DWORD PTR [rsp+0x34]
+    17eb:	mov    r8d,DWORD PTR [rsp+0x30]
+    17f0:	mov    rax,QWORD PTR [rsp+0x48]
+    17f5:	mov    rdi,QWORD PTR [rsp+0x28]
+    17fa:	mov    r9,QWORD PTR [rsp+0x58]
+    17ff:	movsxd r13,r8d
+    1802:	mov    ecx,DWORD PTR [rsp+0x38]
+    1806:	mov    DWORD PTR [rsp+0x50],r10d
+    180b:	imul   r9,r13
+    180f:	nop
+    1810:	cmp    DWORD PTR [rsp+0x54],0x6
+    1815:	vmovss xmm1,DWORD PTR [rdi+r13*4]
+    181b:	jbe    1970 <matmul+0x3e0>
+    1821:	lea    r8,[rbx+r9*4]
+    1825:	vbroadcastss ymm2,xmm1
+    182a:	xor    esi,esi
+    182c:	nop    DWORD PTR [rax+0x0]
+    1830:	vmovups ymm0,YMMWORD PTR [r8+rsi*1]
+    1836:	vfmadd213ps ymm0,ymm2,YMMWORD PTR [rax+rsi*1]
+    183c:	vmovups YMMWORD PTR [rax+rsi*1],ymm0
+    1841:	add    rsi,0x20
+    1845:	cmp    rdx,rsi
+    1848:	jne    1830 <matmul+0x2a0>
+    184a:	cmp    ecx,r14d
+    184d:	je     1950 <matmul+0x3c0>
+    1853:	mov    esi,ecx
+    1855:	mov    r8d,ecx
+    1858:	mov    r10d,r14d
+    185b:	sub    r10d,esi
+    185e:	lea    r11d,[r10-0x1]
+    1862:	cmp    r11d,0x2
+    1866:	jbe    1897 <matmul+0x307>
+    1868:	lea    r11,[rsi+r15*1]
+    186c:	add    rsi,r9
+    186f:	vshufps xmm0,xmm1,xmm1,0x0
+    1874:	lea    r11,[r12+r11*4]
+    1878:	vmovups xmm4,XMMWORD PTR [r11]
+    187d:	vfmadd132ps xmm0,xmm4,XMMWORD PTR [rbx+rsi*4]
+    1883:	mov    esi,r10d
+    1886:	and    esi,0xfffffffc
+    1889:	add    r8d,esi
+    188c:	and    r10d,0x3
+    1890:	vmovups XMMWORD PTR [r11],xmm0
+    1895:	je     18ff <matmul+0x36f>
+    1897:	movsxd rsi,r8d
+    189a:	lea    r10,[rsi+r15*1]
+    189e:	add    rsi,r9
+    18a1:	lea    r10,[r12+r10*4]
+    18a5:	vmovss xmm0,DWORD PTR [rbx+rsi*4]
+    18aa:	lea    esi,[r8+0x1]
+    18ae:	vfmadd213ss xmm0,xmm1,DWORD PTR [r10]
+    18b3:	cmp    esi,r14d
+    18b6:	vmovss DWORD PTR [r10],xmm0
+    18bb:	jge    18ff <matmul+0x36f>
+    18bd:	movsxd rsi,esi
+    18c0:	add    r8d,0x2
+    18c4:	lea    r10,[rsi+r15*1]
+    18c8:	add    rsi,r9
+    18cb:	cmp    r14d,r8d
+    18ce:	lea    r10,[r12+r10*4]
+    18d2:	vmovss xmm0,DWORD PTR [rbx+rsi*4]
+    18d7:	vfmadd213ss xmm0,xmm1,DWORD PTR [r10]
+    18dc:	vmovss DWORD PTR [r10],xmm0
+    18e1:	jle    18ff <matmul+0x36f>
+    18e3:	movsxd r8,r8d
+    18e6:	lea    rsi,[r8+r15*1]
+    18ea:	add    r8,r9
+    18ed:	lea    rsi,[r12+rsi*4]
+    18f1:	vmovss xmm5,DWORD PTR [rsi]
+    18f5:	vfmadd132ss xmm1,xmm5,DWORD PTR [rbx+r8*4]
+    18fb:	vmovss DWORD PTR [rsi],xmm1
+    18ff:	mov    rsi,QWORD PTR [rsp+0x58]
+    1904:	add    r13,0x1
+    1908:	add    r9,rsi
+    190b:	cmp    r14d,r13d
+    190e:	jg     1810 <matmul+0x280>
+    1914:	mov    r10d,DWORD PTR [rsp+0x50]
+    1919:	mov    rcx,QWORD PTR [rsp+0x40]
+    191e:	add    r15,rsi
+    1921:	add    r10d,0x1
+    1925:	add    rax,rcx
+    1928:	add    rdi,rcx
+    192b:	cmp    r14d,r10d
+    192e:	jne    1639 <matmul+0xa9>
+    1934:	vzeroupper
+    1937:	lea    rsp,[rbp-0x28]
+    193b:	pop    rbx
+    193c:	pop    r12
+    193e:	pop    r13
+    1940:	pop    r14
+    1942:	pop    r15
+    1944:	pop    rbp
+    1945:	ret
+    1946:	cs nop WORD PTR [rax+rax*1+0x0]
+    1950:	mov    rsi,QWORD PTR [rsp+0x58]
+    1955:	add    r13,0x1
+    1959:	add    r9,rsi
+    195c:	cmp    ecx,r13d
+    195f:	jle    1914 <matmul+0x384>
+    1961:	vmovss xmm1,DWORD PTR [rdi+r13*4]
+    1967:	jmp    1821 <matmul+0x291>
+    196c:	nop    DWORD PTR [rax+0x0]
+    1970:	xor    esi,esi
+    1972:	xor    r8d,r8d
+    1975:	jmp    1858 <matmul+0x2c8>
+    197a:	xor    esi,esi
+    197c:	xor    edi,edi
+    197e:	jmp    16dc <matmul+0x14c>
+
+Disassembly of section .fini:

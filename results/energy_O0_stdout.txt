@@ -1,0 +1,1 @@
+N=1024 repeats=2 checksum=364.583443 time=5.812 s  (0.74 GFLOP/s)

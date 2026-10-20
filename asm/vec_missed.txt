@@ -1,0 +1,39 @@
+src/bench.c:27:23: missed: couldn't vectorize loop
+src/bench.c:29:29: missed: not vectorized: complicated access pattern.
+src/bench.c:28:27: missed: couldn't vectorize loop
+src/bench.c:14:7: missed: not vectorized: unsupported use in stmt.
+src/bench.c:36:23: missed: couldn't vectorize loop
+src/bench.c:36:23: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+src/bench.c:37:27: missed: couldn't vectorize loop
+src/bench.c:40:38: missed: not vectorized: complicated access pattern.
+src/bench.c:38:41: missed: couldn't vectorize loop
+src/bench.c:38:19: missed: not vectorized: complicated access pattern.
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:59:10: missed: statement clobbers memory: __builtin_memset (c_30(D), 0, _3);
+src/bench.c:48:23: missed: couldn't vectorize loop
+src/bench.c:53:29: missed: not vectorized: complicated access pattern.
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:10: missed: statement clobbers memory: __builtin_memcpy (dst_33(D), src_34(D), _3);
+src/bench.c:61:26: missed: couldn't vectorize loop
+src/bench.c:62:15: missed: not vectorized: no vectype for stmt: _3 = *_2;
+ scalar_type: const float
+src/bench.c:97:23: missed: couldn't vectorize loop
+src/bench.c:98:9: missed: statement clobbers memory: matmul (a_39, b_41, c_43, iftmp.0_89);
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _55 = strtol (_2, 0B, 10);
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _60 = strtol (_4, 0B, 10);
+src/bench.c:83:16: missed: statement clobbers memory: a_39 = aligned_alloc (64, bytes_37);
+src/bench.c:84:16: missed: statement clobbers memory: b_41 = aligned_alloc (64, bytes_37);
+src/bench.c:85:16: missed: statement clobbers memory: c_43 = aligned_alloc (64, bytes_37);
+src/bench.c:86:16: missed: statement clobbers memory: d_45 = aligned_alloc (64, bytes_37);
+src/bench.c:69:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/bench.c:93:5: missed: statement clobbers memory: fill_random (a_39, iftmp.0_89);
+src/bench.c:94:5: missed: statement clobbers memory: fill_random (b_41, iftmp.0_89);
+src/bench.c:98:9: missed: statement clobbers memory: matmul (a_39, b_41, c_43, iftmp.0_89);
+src/bench.c:99:9: missed: statement clobbers memory: blur3x3 (c_43, d_45, iftmp.0_89);
+src/bench.c:100:16: missed: statement clobbers memory: _56 = checksum (d_45, iftmp.0_89);
+src/bench.c:69:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "N=%d repeats=%d checksum=%.6f time=%.3f s  (%.2f GFLOP/s)\n", iftmp.0_89, iftmp.1_88, sum_31, _25, _26);
+src/bench.c:108:5: missed: statement clobbers memory: free (a_39);
+src/bench.c:109:5: missed: statement clobbers memory: free (b_41);
+src/bench.c:110:5: missed: statement clobbers memory: free (c_43);
+src/bench.c:111:5: missed: statement clobbers memory: free (d_45);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __builtin_fwrite ("out of memory\n", 1, 14, stderr.3_18);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (stderr.2_9, 2, "usage: %s [N>=3] [REPEATS>=1]\n", _8);

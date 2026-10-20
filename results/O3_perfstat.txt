@@ -1,0 +1,20 @@
+# started on Tue Oct 20 17:38:06 2026
+
+
+ Performance counter stats for './build/bench_O3 1024 2' (5 runs):
+
+            225.11 msec task-clock                       #    0.978 CPUs utilized               ( +-  1.95% )
+                 4      context-switches                 #   17.769 /sec                        ( +-  5.00% )
+                 0      cpu-migrations                   #    0.000 /sec                      
+              4161      page-faults                      #   18.484 K/sec                       ( +-  0.01% )
+   <not supported>      cycles                                                                
+   <not supported>      instructions                                                          
+   <not supported>      branches                                                              
+   <not supported>      branch-misses                                                         
+   <not supported>      L1-dcache-loads                                                       
+   <not supported>      L1-dcache-load-misses                                                 
+   <not supported>      LLC-loads                                                             
+   <not supported>      LLC-load-misses                                                       
+
+           0.23007 +- 0.00481 seconds time elapsed  ( +-  2.09% )
+

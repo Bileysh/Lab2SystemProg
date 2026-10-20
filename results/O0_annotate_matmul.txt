@@ -1,0 +1,80 @@
+ Percent |	Source code & Disassembly of bench_O0 for task-clock:ppp (5648 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001391 <matmul>:
+         : 6    *at(m, n, i, j) = (float)(xorshift32() & 0xFFFF) / 65536.0f - 0.5f;
+         : 7    }
+         :
+         : 9    NOINLINE void matmul(const float *restrict a, const float *restrict b,
+         : 10   float *restrict c, int n)
+         : 11   {
+    0.00 :   1391:   endbr64
+    0.00 :   1395:   push   %rbp
+    0.00 :   1396:   mov    %rsp,%rbp
+    0.00 :   1399:   sub    $0x30,%rsp
+    0.00 :   139d:   mov    %rdi,-0x18(%rbp)
+    0.00 :   13a1:   mov    %rsi,-0x20(%rbp)
+    0.00 :   13a5:   mov    %rdx,-0x28(%rbp)
+    0.00 :   13a9:   mov    %ecx,-0x2c(%rbp)
+         : 20   memset(c, 0, (size_t)n * n * sizeof(float));
+    0.00 :   13ac:   mov    -0x2c(%rbp),%eax
+    0.00 :   13af:   movslq %eax,%rdx
+    0.00 :   13b2:   mov    -0x2c(%rbp),%eax
+    0.00 :   13b5:   cltq
+    0.00 :   13b7:   imul   %rdx,%rax
+    0.00 :   13bb:   lea    0x0(,%rax,4),%rdx
+    0.00 :   13c3:   mov    -0x28(%rbp),%rax
+    0.00 :   13c7:   mov    $0x0,%esi
+    0.00 :   13cc:   mov    %rax,%rdi
+    0.00 :   13cf:   call   1120 <memset@plt>
+         : 31   for (int i = 0; i < n; i++)
+    0.00 :   13d4:   movl   $0x0,-0x10(%rbp)
+    0.00 :   13db:   jmp    14d2 <matmul+0x141>
+         : 34   for (int k = 0; k < n; k++) {
+    0.00 :   13e0:   movl   $0x0,-0xc(%rbp)
+    0.00 :   13e7:   jmp    14c2 <matmul+0x131>
+         : 37   float aik = a[(size_t)i * n + k];
+    0.05 :   13ec:   mov    -0x10(%rbp),%eax
+    0.00 :   13ef:   movslq %eax,%rdx
+    0.00 :   13f2:   mov    -0x2c(%rbp),%eax
+    0.00 :   13f5:   cltq
+    0.00 :   13f7:   imul   %rax,%rdx
+    0.00 :   13fb:   mov    -0xc(%rbp),%eax
+    0.00 :   13fe:   cltq
+    0.00 :   1400:   add    %rdx,%rax
+    0.00 :   1403:   lea    0x0(,%rax,4),%rdx
+    0.02 :   140b:   mov    -0x18(%rbp),%rax
+    0.00 :   140f:   add    %rdx,%rax
+    0.00 :   1412:   movss  (%rax),%xmm0
+    0.11 :   1416:   movss  %xmm0,-0x4(%rbp)
+         : 51   for (int j = 0; j < n; j++)
+    0.00 :   141b:   movl   $0x0,-0x8(%rbp)
+    0.00 :   1422:   jmp    14b2 <matmul+0x121>
+         : 54   c[(size_t)i * n + j] += aik * b[(size_t)k * n + j];
+    0.99 :   1427:   mov    -0x10(%rbp),%eax
+    0.41 :   142a:   movslq %eax,%rdx
+    1.26 :   142d:   mov    -0x2c(%rbp),%eax
+    4.57 :   1430:   cltq
+    5.79 :   1432:   imul   %rax,%rdx
+    0.16 :   1436:   mov    -0x8(%rbp),%eax
+    0.27 :   1439:   cltq
+    0.28 :   143b:   add    %rdx,%rax
+    0.67 :   143e:   lea    0x0(,%rax,4),%rdx
+    0.62 :   1446:   mov    -0x28(%rbp),%rax
+    1.42 :   144a:   add    %rdx,%rax
+    4.39 :   144d:   movss  (%rax),%xmm1
+    7.51 :   1451:   mov    -0xc(%rbp),%eax
+    0.19 :   1454:   movslq %eax,%rdx
+    0.46 :   1457:   mov    -0x2c(%rbp),%eax
+    0.32 :   145a:   cltq
+    0.71 :   145c:   imul   %rax,%rdx
+    0.48 :   1460:   mov    -0x8(%rbp),%eax
+    1.24 :   1463:   cltq
+    3.45 :   1465:   add    %rdx,%rax
+    5.95 :   1468:   lea    0x0(,%rax,4),%rdx
+    0.14 :   1470:   mov    -0x20(%rbp),%rax
+    0.46 :   1474:   add    %rdx,%rax

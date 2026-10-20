@@ -1,0 +1,25 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'task-clock:ppp'
+# Event count (approx.): 5727727722
+#
+# Children      Self  Symbol                             IPC   [IPC Coverage]
+# ........  ........  .................................  ....................
+#
+   100.00%     0.00%  [.] __libc_start_call_main         -      -            
+   100.00%     0.00%  [.] __libc_start_main@@GLIBC_2.34  -      -            
+   100.00%     0.00%  [.] _start                         -      -            
+    99.98%     0.00%  [.] main                           -      -            
+    98.72%    98.71%  [.] matmul                         -      -            
+     0.70%     0.70%  [.] blur3x3                        -      -            
+     0.31%     0.19%  [.] fill_random                    -      -            
+     0.16%     0.07%  [k] do_user_addr_fault             -      -            
+     0.16%     0.00%  [k] asm_exc_page_fault             -      -            
+     0.16%     0.00%  [k] exc_page_fault                 -      -            
+     0.10%     0.10%  [.] checksum                       -      -            
+     0.09%     0.00%  [k] __handle_mm_fault              -      -            
+     0.09%     0.00%  [k] handle_mm_fault                -      -            
+     0.07%     0.02%  [.] __memmove_avx_unaligned_erms   -      -            

@@ -1,0 +1,108 @@
+
+build/bench_O0:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001391 <matmul>:
+    1391:	endbr64
+    1395:	push   rbp
+    1396:	mov    rbp,rsp
+    1399:	sub    rsp,0x30
+    139d:	mov    QWORD PTR [rbp-0x18],rdi
+    13a1:	mov    QWORD PTR [rbp-0x20],rsi
+    13a5:	mov    QWORD PTR [rbp-0x28],rdx
+    13a9:	mov    DWORD PTR [rbp-0x2c],ecx
+    13ac:	mov    eax,DWORD PTR [rbp-0x2c]
+    13af:	movsxd rdx,eax
+    13b2:	mov    eax,DWORD PTR [rbp-0x2c]
+    13b5:	cdqe
+    13b7:	imul   rax,rdx
+    13bb:	lea    rdx,[rax*4+0x0]
+    13c3:	mov    rax,QWORD PTR [rbp-0x28]
+    13c7:	mov    esi,0x0
+    13cc:	mov    rdi,rax
+    13cf:	call   1120 <memset@plt>
+    13d4:	mov    DWORD PTR [rbp-0x10],0x0
+    13db:	jmp    14d2 <matmul+0x141>
+    13e0:	mov    DWORD PTR [rbp-0xc],0x0
+    13e7:	jmp    14c2 <matmul+0x131>
+    13ec:	mov    eax,DWORD PTR [rbp-0x10]
+    13ef:	movsxd rdx,eax
+    13f2:	mov    eax,DWORD PTR [rbp-0x2c]
+    13f5:	cdqe
+    13f7:	imul   rdx,rax
+    13fb:	mov    eax,DWORD PTR [rbp-0xc]
+    13fe:	cdqe
+    1400:	add    rax,rdx
+    1403:	lea    rdx,[rax*4+0x0]
+    140b:	mov    rax,QWORD PTR [rbp-0x18]
+    140f:	add    rax,rdx
+    1412:	movss  xmm0,DWORD PTR [rax]
+    1416:	movss  DWORD PTR [rbp-0x4],xmm0
+    141b:	mov    DWORD PTR [rbp-0x8],0x0
+    1422:	jmp    14b2 <matmul+0x121>
+    1427:	mov    eax,DWORD PTR [rbp-0x10]
+    142a:	movsxd rdx,eax
+    142d:	mov    eax,DWORD PTR [rbp-0x2c]
+    1430:	cdqe
+    1432:	imul   rdx,rax
+    1436:	mov    eax,DWORD PTR [rbp-0x8]
+    1439:	cdqe
+    143b:	add    rax,rdx
+    143e:	lea    rdx,[rax*4+0x0]
+    1446:	mov    rax,QWORD PTR [rbp-0x28]
+    144a:	add    rax,rdx
+    144d:	movss  xmm1,DWORD PTR [rax]
+    1451:	mov    eax,DWORD PTR [rbp-0xc]
+    1454:	movsxd rdx,eax
+    1457:	mov    eax,DWORD PTR [rbp-0x2c]
+    145a:	cdqe
+    145c:	imul   rdx,rax
+    1460:	mov    eax,DWORD PTR [rbp-0x8]
+    1463:	cdqe
+    1465:	add    rax,rdx
+    1468:	lea    rdx,[rax*4+0x0]
+    1470:	mov    rax,QWORD PTR [rbp-0x20]
+    1474:	add    rax,rdx
+    1477:	movss  xmm0,DWORD PTR [rax]
+    147b:	mulss  xmm0,DWORD PTR [rbp-0x4]
+    1480:	mov    eax,DWORD PTR [rbp-0x10]
+    1483:	movsxd rdx,eax
+    1486:	mov    eax,DWORD PTR [rbp-0x2c]
+    1489:	cdqe
+    148b:	imul   rdx,rax
+    148f:	mov    eax,DWORD PTR [rbp-0x8]
+    1492:	cdqe
+    1494:	add    rax,rdx
+    1497:	lea    rdx,[rax*4+0x0]
+    149f:	mov    rax,QWORD PTR [rbp-0x28]
+    14a3:	add    rax,rdx
+    14a6:	addss  xmm0,xmm1
+    14aa:	movss  DWORD PTR [rax],xmm0
+    14ae:	add    DWORD PTR [rbp-0x8],0x1
+    14b2:	mov    eax,DWORD PTR [rbp-0x8]
+    14b5:	cmp    eax,DWORD PTR [rbp-0x2c]
+    14b8:	jl     1427 <matmul+0x96>
+    14be:	add    DWORD PTR [rbp-0xc],0x1
+    14c2:	mov    eax,DWORD PTR [rbp-0xc]
+    14c5:	cmp    eax,DWORD PTR [rbp-0x2c]
+    14c8:	jl     13ec <matmul+0x5b>
+    14ce:	add    DWORD PTR [rbp-0x10],0x1
+    14d2:	mov    eax,DWORD PTR [rbp-0x10]
+    14d5:	cmp    eax,DWORD PTR [rbp-0x2c]
+    14d8:	jl     13e0 <matmul+0x4f>
+    14de:	nop
+    14df:	nop
+    14e0:	leave
+    14e1:	ret
+
+Disassembly of section .fini:
